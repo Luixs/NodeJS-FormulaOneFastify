@@ -3,10 +3,17 @@
 * @Date: 2024-12-21 17:00
 * @Description: Minimal API
 *****************************************************************************************/
+import cors from '@fastify/cors';
 import fastify from 'fastify';
 
 // ===== CONSTS
 const server = fastify({ logger: true });
+server.register(cors, {
+    origin: "*", 
+    methods: ["GET", "POST"]
+});
+
+
 const dummyTeams = [
     { id: 1, name: "McLaren", base: "United Kingdom" },
     { id: 2, name: "Mercedes", base: "United Kingdom" },
